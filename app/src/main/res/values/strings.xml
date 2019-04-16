@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Online Test</string>
+    <string name="title_activity_main2">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="question">
+        <item>Are you male?</item>
+        <item>Do you sleep properly?</item>
+        <item>Do you read properly?</item>
+        <item>Do you read properly?</item>
+    </string-array>
+
+    <string-array name="questionSelectOption1">
+        <item>yes</item>
+        <item>yes</item>
+        <item>Yes</item>
+        <item>Yes</item>
+    </string-array>
+
+    <string-array name="questionSelectOption2">
+        <item>no</item>
+        <item>Yes</item>
+        <item>Yes</item>
+        <item>no</item>
+    </string-array>
+
+    <string-array name="questionSelectOption3">
+        <item>sometime</item>
+        <item>sometime</item>
+        <item>Yes</item>
+        <item>Yes</item>
+    </string-array>
+
+    <string-array name="questionSelectOption4">
+        <item>yes</item>
+        <item>Yes</item>
+        <item>Yes</item>
+        <item>Yes</item>
+    </string-array>
+
+
+
+</resources>
