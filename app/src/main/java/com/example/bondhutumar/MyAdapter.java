@@ -9,19 +9,21 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.bondhutumar.model.QuestionAnswerModel;
+
+import java.util.List;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
-    String[] question,selectOption1,selectOption2,selectOption3,selectOption4;
+    List<QuestionAnswerModel> list;
 
-    public MyAdapter(Context context, String[] question, String[] selectOption1, String[] selectOption2, String[] selectOption3, String[] selectOption4) {
-        this.context = context;
-        this.question = question;
-        this.selectOption1 = selectOption1;
-        this.selectOption2 = selectOption2;
-        this.selectOption3 = selectOption3;
-        this.selectOption4 = selectOption4;
+
+    public MyAdapter(Context context, List<QuestionAnswerModel> list){
+        this.context=context;
+        this.list=list;
     }
+
 
     @NonNull
     @Override
@@ -35,17 +37,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
-        myViewHolder.question.setText(question[i]);
-        myViewHolder.radioButton1.setText(selectOption1[i]);
-        myViewHolder.radioButton2.setText(selectOption2[i]);
-        myViewHolder.radioButton3.setText(selectOption3[i]);
-        myViewHolder.radioButton4.setText(selectOption4[i]);
+        myViewHolder.question.setText(list.get(i).getQueston());
+        myViewHolder.radioButton1.setText(list.get(i).getAnswerA());
+        myViewHolder.radioButton2.setText(list.get(i).getAnswerB());
+        myViewHolder.radioButton3.setText(list.get(i).getAnswerC());
+        myViewHolder.radioButton4.setText(list.get(i).getAnswerD());
 
     }
 
     @Override
     public int getItemCount() {
-        return question.length;
+
+        return list.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{

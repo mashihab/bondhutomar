@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
+    android:weightSum="5"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".AllQuestion">
@@ -14,7 +15,10 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewId"
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="0dp"
+            android:layout_weight="4.5"
+
+            >
 
         </android.support.v7.widget.RecyclerView>
 
@@ -22,7 +26,8 @@
 <LinearLayout
 android:orientation="vertical"
 android:layout_width="match_parent"
-android:layout_height="wrap_content">
+    android:layout_weight="0.5"
+android:layout_height="0dp">
 
     <Button
         android:layout_gravity="center"
