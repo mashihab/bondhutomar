@@ -35,8 +35,8 @@ android:layout_height="0dp">
         android:layout_margin="5dp"
         android:textAllCaps="false"
         android:text="Submit"
-        android:textSize="25dp"
-        android:layout_width="wrap_content"
+        android:textSize="14dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content" />
 </LinearLayout>
 
