@@ -3,30 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="10dp"
+    android:padding="7dp"
+
     android:weightSum="5"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".AllQuestion">
 
 
+
     <TextView
+      android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.4"
-        android:text="Depression"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:paddingTop="2dp"
-        android:textAlignment="center"
-        android:textColor="#f9f9f9"
-        android:background="#8736de"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
         android:text="Quick Test"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#f9f9f9"
@@ -41,15 +33,16 @@
         android:paddingRight="5dp"
         android:paddingBottom="2dp"
         android:background="#dadada"
-        android:layout_weight="3.9" >
+        android:layout_weight="4.2" >
 
         </android.support.v7.widget.RecyclerView>
 
 
 <LinearLayout
+
 android:orientation="vertical"
 android:layout_width="match_parent"
-    android:layout_weight="0.5"
+    android:layout_weight="0.4"
 android:layout_height="0dp">
 
     <Button
@@ -57,9 +50,10 @@ android:layout_height="0dp">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:text="Submit"
         android:background="#11baa7"
-        android:textSize="20dp" />
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textSize="18dp" />
 </LinearLayout>
 
 </LinearLayout>

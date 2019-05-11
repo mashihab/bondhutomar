@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class EmailSendActivity extends AppCompatActivity {
 
-    private EditText editText;
+  /*  private EditText editText;
     private Button button;
     String result="";
     DatabaseReference databaseReference;
@@ -54,5 +54,5 @@ public class EmailSendActivity extends AppCompatActivity {
         });
 
 
-    }
+    }*/
 }

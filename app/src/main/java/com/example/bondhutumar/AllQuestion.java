@@ -1,9 +1,9 @@
 package com.example.bondhutumar;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -91,6 +91,10 @@ public class AllQuestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                android.support.v7.app.AlertDialog.Builder mBuilder = new AlertDialog.Builder(AllQuestion.this);
+                View mview = getLayoutInflater().inflate(R.layout.activity_email_send, null);
+
+
                 int result = 0;
                 for (int i = 0; i < recyclerView.getAdapter().getItemCount(); i++) {
 
@@ -104,12 +108,67 @@ public class AllQuestion extends AppCompatActivity {
 
                 String AllResult = Integer.toString(result);
 
+                Button button = mview.findViewById(R.id.sendButton);
+                final EditText editText= mview.findViewById(R.id.editTextEmail1);
 
 
 
-                Intent intent = new Intent(AllQuestion.this,EmailSendActivity.class);
-                intent.putExtra("result",AllResult);
-                startActivity(intent);
+
+
+                    final DatabaseReference databaseReference;
+
+                    databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+
+
+
+                    Bundle bundle = getIntent().getExtras();
+
+                    if(bundle!= null){
+                        AllResult = bundle.getString("result");
+                    }
+
+
+                    final String finalAllResult = AllResult;
+
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+
+                            if(editText.getText().toString().isEmpty())
+                            {
+
+                               editText.setError("Enter email");
+                            }
+                            else {
+
+                                String email = editText.getText().toString();
+                                String id = databaseReference.push().getKey();
+                                Artist artist = new Artist(id, email, finalAllResult);
+                                databaseReference.child(id).setValue(artist);
+
+
+
+                                Toast.makeText(AllQuestion.this,"You will get your result soon!!!",Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(AllQuestion.this,Main2Activity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+
+
+                        }
+                    });
+
+
+                //Intent intent = new Intent(AllQuestion.this,EmailSendActivity.class);
+                //intent.putExtra("result",AllResult);
+                //startActivity(intent);
+
+                mBuilder.setView(mview);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
 
             }
         });

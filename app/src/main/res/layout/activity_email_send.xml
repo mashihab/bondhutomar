@@ -6,23 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/Bcolor"
+    android:background="@color/white"
     tools:context=".EmailSendActivity">
 
 
-    <EditText
-        android:id="@+id/editTextEmail1"
-        android:textSize="25dp"
-        android:hint="Enter your Email Address"
-        android:layout_width="match_parent"
-        android:layout_height="80dp" />
-    <Button
-        android:id="@+id/sendButton"
-        android:text="Ok"
-        android:background="#11baa7"
-        android:textSize="20dp"
-        android:textColor="#ffffff"
+    <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your email adress "/>
+
+
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/editTextEmail1"
+        android:textSize="18dp"
+        android:hint="sample@gmail.com"
+        android:layout_width="200dp"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/sendButton"
+        android:layout_width="113dp"
+        android:layout_height="38dp"
+        android:background="#11baa7"
+        android:text="send"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18dp" />
+
 
 </LinearLayout>

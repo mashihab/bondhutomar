@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".EmailSendActivity"></activity>
-        <activity android:name=".AllQuestion" />
+        <activity android:name=".AllQuestion"
+            android:label="Depression"
+
+            />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
