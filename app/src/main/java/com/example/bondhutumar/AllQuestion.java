@@ -1,14 +1,24 @@
 package com.example.bondhutumar;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.bondhutumar.model.QuestionAnswerModel;
 import com.example.bondhutumar.response.QAResponse;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -25,7 +35,9 @@ public class AllQuestion extends AppCompatActivity {
 
     List<QuestionAnswerModel> list;
     ProgressDialog progressDialog;
+    Button btnSubmit;
 
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -33,13 +45,20 @@ public class AllQuestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_question);
         recyclerView = findViewById(R.id.recyclerViewId);
+        btnSubmit = findViewById(R.id.btnSubmit);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("artists");
+
+
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Please wait...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(qaBaseUrl).addConverterFactory(GsonConverterFactory.create()).build();
+        MyAdapter.map.clear();
+
+     final Retrofit retrofit = new Retrofit.Builder().baseUrl(qaBaseUrl).addConverterFactory(GsonConverterFactory.create()).build();
 
         QAResponse qaResponse = retrofit.create(QAResponse.class);
 
@@ -68,6 +87,50 @@ public class AllQuestion extends AppCompatActivity {
             }
         });
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int result = 0;
+                for (int i = 0; i < recyclerView.getAdapter().getItemCount(); i++) {
+
+                    if (MyAdapter.map.get(i) != null) {
+                        Log.d("check ", MyAdapter.map.get(i).getAnswer());
+                        result += MyAdapter.map.get(i).getAnswerNo();
+                    }
+                }
+
+
+
+                String AllResult = Integer.toString(result);
+
+
+
+
+                Intent intent = new Intent(AllQuestion.this,EmailSendActivity.class);
+                intent.putExtra("result",AllResult);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
 
     }
+
+    private void artistAdded() {
+        String email = "tt";
+        String result = "45";
+
+        String id = databaseReference.push().getKey();
+        Artist artist = new Artist(id, email, result);
+        databaseReference.child(id).setValue(artist);
+
+            Toast.makeText(this,"Artist added",Toast.LENGTH_LONG).show();
+    }
+
+
+
 }

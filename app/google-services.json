@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "524969394900",
+    "firebase_url": "https://bondhutomar-7ead3.firebaseio.com",
+    "project_id": "bondhutomar-7ead3",
+    "storage_bucket": "bondhutomar-7ead3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524969394900:android:d68787136c660443",
+        "android_client_info": {
+          "package_name": "com.example.bondhutumar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524969394900-rrdu2s1u4t2gkn66cvsv3a6vj7cdgu7m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bondhutumar",
+            "certificate_hash": "068508477572aa49c89c6f451ce6ba7a4bdd9787"
+          }
+        },
+        {
+          "client_id": "524969394900-5me483qrlfnrdl0brnnb40l43npg5pfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPCtAlq71hwEUUnn5YyQ5sHH32dpmCAEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524969394900-5me483qrlfnrdl0brnnb40l43npg5pfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

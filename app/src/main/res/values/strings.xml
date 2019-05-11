@@ -8,7 +8,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="text">Tanveer</string>
+    <string name="DialogueText">You will get your result soon!!!</string>
 
     <string-array name="question">
         <item>Are you male?</item>
@@ -44,7 +44,6 @@
         <item>Yes</item>
         <item>Yes</item>
     </string-array>
-
 
 
 </resources>

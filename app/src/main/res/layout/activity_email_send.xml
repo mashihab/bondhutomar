@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/Bcolor"
+    tools:context=".EmailSendActivity">
+
+
+    <EditText
+        android:id="@+id/editTextEmail1"
+        android:textSize="25dp"
+        android:hint="Enter your Email Address"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+    <Button
+        android:id="@+id/sendButton"
+        android:text="Ok"
+        android:background="#11baa7"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
