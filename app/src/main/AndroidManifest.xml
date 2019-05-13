@@ -11,11 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EmailSendActivity"></activity>
-        <activity android:name=".AllQuestion"
-            android:label="Depression"
+        <activity android:name=".Result">
 
-            />
+        </activity>
+        <activity android:name=".Depression"></activity>
+        <activity android:name=".EmailSendActivity" />
+        <activity
+            android:name=".AllQuestion"
+            android:label="Depression" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"

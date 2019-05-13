@@ -148,12 +148,16 @@ public class AllQuestion extends AppCompatActivity {
                                 Artist artist = new Artist(id, email, finalAllResult);
                                 databaseReference.child(id).setValue(artist);
 
+                                String s=finalAllResult;
 
 
-                                Toast.makeText(AllQuestion.this,"You will get your result soon!!!",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(AllQuestion.this,Main2Activity.class);
-                                startActivity(intent);
-                                finish();
+
+
+
+                               Intent intent = new Intent(AllQuestion.this,Result.class);
+                               intent.putExtra("result",s);
+                               startActivity(intent);
+
 
                             }
 

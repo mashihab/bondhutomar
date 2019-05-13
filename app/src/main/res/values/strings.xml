@@ -1,15 +1,18 @@
 <resources>
     <string name="app_name">Bondhutomar</string>
     <string name="title_activity_main2">Home</string>
+    <string name="dep">Depression</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="agreement">In the sample agreement, the "Disclosing Party" is the person disclosing secrets, and the "Receiving Party" is the person who receives the confidential information and is obligated to keep it secret. The terms are capitalized to indicate that they should be interpreted as defined within the agreement. The sample agreement is a "one-way" (or, in legalese, "unilateral") agreement -- that is, only one party is disclosing secrets. If each side is disclosing secrets to the other, you should modify the agreement to make it a mutual (or "bilateral") nondisclosure agreement. To do that, substitute the following paragraph for the first paragraph in the agreement.</string>
+
+
     <string name="action_settings">Settings</string>
 
     <string name="bondhu">বন্ধু তোমার</string>
-
 
 
     <string name="DialogueText">You will get your result soon!!!</string>

@@ -50,7 +50,7 @@ public class Main2Activity extends AppCompatActivity
            public void onClick(View v) {
 
 
-               Intent intent = new Intent(Main2Activity.this,AllQuestion.class);
+               Intent intent = new Intent(Main2Activity.this,Depression.class);
                startActivity(intent);
 
            }
