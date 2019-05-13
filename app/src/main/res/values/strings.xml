@@ -8,6 +8,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="bondhu">বন্ধু তোমার</string>
+
+
+
     <string name="DialogueText">You will get your result soon!!!</string>
 
     <string-array name="question">

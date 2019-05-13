@@ -14,4 +14,12 @@
         android:src="@drawable/bondhuedit"
         android:layout_height="200dp" />
 
+    <TextView
+        android:text="@string/bondhu"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:textColor="@color/Qcolor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
