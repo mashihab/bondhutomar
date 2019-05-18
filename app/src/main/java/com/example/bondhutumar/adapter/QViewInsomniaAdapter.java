@@ -1,4 +1,4 @@
-package com.example.bondhutumar;
+package com.example.bondhutumar.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,52 +10,49 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.bondhutumar.model.QuestionAnswerModel;
+import com.example.bondhutumar.R;
+import com.example.bondhutumar.model.QAModelInsomnia;
 import com.example.bondhutumar.model.UserAnswer;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class QViewInsomniaAdapter extends RecyclerView.Adapter<QViewInsomniaAdapter.QViewHolder> {
+    private Context context;
+    private List<QAModelInsomnia> list;
+    public static Map<Integer, UserAnswer> map_insomnia = new HashMap<>();
 
-    Context context;
-    List<QuestionAnswerModel> list;
-    public static Map<Integer, UserAnswer> map = new HashMap<>();
-
-    public MyAdapter(Context context, List<QuestionAnswerModel> list){
-        this.context=context;
-        this.list=list;
+    public QViewInsomniaAdapter(Context context, List<QAModelInsomnia> list) {
+        this.context = context;
+        this.list = list;
     }
-
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public QViewInsomniaAdapter.QViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-       View view = layoutInflater.inflate(R.layout.sample_layout,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.layout_qus_ans_view_insomnia, viewGroup, false);
 
-        return new MyViewHolder(view);
+
+        return new QViewInsomniaAdapter.QViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull QViewInsomniaAdapter.QViewHolder qViewHolder, int i) {
         String ques = list.get(i).getQueston();
         String queswithno = (i + 1) + ". " + ques;
-        myViewHolder.question.setText(queswithno);
-        myViewHolder.radioButton1.setText(list.get(i).getAnswerA());
-        myViewHolder.radioButton2.setText(list.get(i).getAnswerB());
-        myViewHolder.radioButton3.setText(list.get(i).getAnswerC());
-        myViewHolder.radioButton4.setText(list.get(i).getAnswerD());
-
-        myViewHolder.radioGroup.setTag(i);
+        qViewHolder.question.setText(queswithno);
+        qViewHolder.radioButton1.setText(list.get(i).getAnswerA());
+        qViewHolder.radioButton2.setText(list.get(i).getAnswerB());
+        qViewHolder.radioButton3.setText(list.get(i).getAnswerC());
+        qViewHolder.radioGroup.setTag(i);
 
 
-        if (MyAdapter.map.get(i) != null && map.get(i).isAnswered()) {
-            myViewHolder.radioGroup.check(map.get(i).getAnswerRBtnID());
+        if (map_insomnia.get(i) != null && map_insomnia.get(i).isAnswered()) {
+            qViewHolder.radioGroup.check(map_insomnia.get(i).getAnswerRBtnID());
         } else {
-            myViewHolder.radioGroup.clearCheck();
+            qViewHolder.radioGroup.clearCheck();
         }
 
 
@@ -63,24 +60,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-
         return list.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    public class QViewHolder extends RecyclerView.ViewHolder {
         TextView question;
-        RadioButton radioButton1,radioButton2,radioButton3,radioButton4;
+        RadioButton radioButton1, radioButton2, radioButton3;
         RadioGroup radioGroup;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public QViewHolder(@NonNull View itemView) {
             super(itemView);
             question = itemView.findViewById(R.id.allQuestiontextId);
             radioGroup = itemView.findViewById(R.id.rdbGroup);
             radioButton1 = itemView.findViewById(R.id.rbId1);
             radioButton2 = itemView.findViewById(R.id.rbId2);
             radioButton3 = itemView.findViewById(R.id.rbId3);
-            radioButton4 = itemView.findViewById(R.id.rbId4);
-
 
             radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
@@ -97,17 +91,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                         aNo = 1;
                     } else if (rb == radioButton3) {
                         aNo = 2;
-                    } else if (rb == radioButton4) {
-                        aNo = 3;
                     }
                     String answer = "";
                     if (checkedId != -1) {
                         rb.getText().toString();
                     }
 
+                    //Log.d("ok", Integer.toString(pos));
+                    //Log.d("id", Integer.toString(aNo));
 
-
-                    map.put(qNo, new UserAnswer(qNo, question, aNo, answer, radioGroup.getCheckedRadioButtonId(), true));
+                    map_insomnia.put(qNo, new UserAnswer(qNo, question, aNo, answer, radioGroup.getCheckedRadioButtonId(), true));
 
                 }
             });

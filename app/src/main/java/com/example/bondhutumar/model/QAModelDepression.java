@@ -1,11 +1,9 @@
-
 package com.example.bondhutumar.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class QuestionAnswerModel {
-
+public class QAModelDepression {
     @SerializedName("queston")
     @Expose
     private String queston;
@@ -61,5 +59,4 @@ public class QuestionAnswerModel {
     public void setAnswerD(String answerD) {
         this.answerD = answerD;
     }
-
 }

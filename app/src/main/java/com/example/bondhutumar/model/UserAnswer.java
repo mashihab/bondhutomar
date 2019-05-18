@@ -1,15 +1,12 @@
 package com.example.bondhutumar.model;
 
 public class UserAnswer {
-
-
     int questionNo;
     String question;
     int answerNo;
     String answer;
     int answerRBtnID;
     boolean isAnswered;
-
 
 
     public UserAnswer(int questionNo, String question, int answerNo, String answer, int answerRBtnID, boolean isAnswered) {

@@ -6,4 +6,28 @@
     <color name="Qcolor">#1E5988</color>
     <color name="Bcolor">#669CDDFC</color>
     <color name="white">#F0F7F7F7</color>
+
+
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="primaryColor">#0097a7</color>
+    <color name="primaryLightColor">#56c8d8</color>
+    <color name="primaryDarkColor">#006978</color>
+    <color name="secondaryColor">#1565c0</color>
+    <color name="secondaryLightColor">#5e92f3</color>
+    <color name="secondaryDarkColor">#003c8f</color>
+    <color name="primaryTextColor">#fafafa</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <color name="colorLightGray">#b4b4b4</color>
+    <color name="colorDeepPurple">#7c4dff</color>
+    <color name="colorYellow">#ffb300</color>
+    <color name="colorYelloLight">#ecbb27</color>
+    <color name="colorGreen">#00bfa5</color>
+    <color name="colorOffWhite">#ededed</color>
+    <color name="colorWhite">#ffffffff</color>
+    <color name="colorMagenta">#9C094D</color>
+    <color name="colorBlue">#2a7ede</color>
+    <color name="colorBlack">#252323</color>
+    <color name="colorPink">#F24860</color>
 </resources>

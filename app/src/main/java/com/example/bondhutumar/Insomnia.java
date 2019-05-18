@@ -8,23 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class Depression extends AppCompatActivity {
-
+public class Insomnia extends AppCompatActivity {
     private LinearLayout test;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_depression);
+        setContentView(R.layout.activity_insomnia);
 
         test = (LinearLayout) findViewById(R.id.test);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                final android.support.v7.app.AlertDialog.Builder mBuilder = new AlertDialog.Builder(Depression.this);
+                final android.support.v7.app.AlertDialog.Builder mBuilder = new AlertDialog.Builder(Insomnia.this);
                 View mview = getLayoutInflater().inflate(R.layout.agreement, null);
                 mBuilder.setView(mview);
                 final AlertDialog dialog = mBuilder.create();
@@ -36,7 +32,7 @@ public class Depression extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(Depression.this, QAViewDepressionActivity.class);
+                        Intent intent = new Intent(Insomnia.this, QAViewInsomniaActivity.class);
                         startActivity(intent);
                         if (dialog.isShowing()){
                             dialog.dismiss();
@@ -51,7 +47,5 @@ public class Depression extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

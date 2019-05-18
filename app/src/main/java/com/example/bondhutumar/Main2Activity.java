@@ -21,7 +21,7 @@ public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private LinearLayout card1;
+    private LinearLayout card1, card3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +43,22 @@ public class Main2Activity extends AppCompatActivity
 
 
         card1=(LinearLayout) findViewById(R.id.card1);
+        card3 = findViewById(R.id.card3);
 
 
        card1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
-
                Intent intent = new Intent(Main2Activity.this,Depression.class);
                startActivity(intent);
 
+           }
+       });
+
+       card3.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               startActivity(new Intent(getApplicationContext(), Insomnia.class));
            }
        });
 

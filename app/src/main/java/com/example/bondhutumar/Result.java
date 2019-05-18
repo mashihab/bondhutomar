@@ -23,8 +23,5 @@ public class Result extends AppCompatActivity {
         String massage=intent.getStringExtra("result");
 
           textView.setText(massage);
-
-
-
     }
 }

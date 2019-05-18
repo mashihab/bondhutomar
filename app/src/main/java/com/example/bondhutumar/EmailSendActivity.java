@@ -41,7 +41,7 @@ public class EmailSendActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = editText.getText().toString();
                 String id = databaseReference.push().getKey();
-                Artist artist = new Artist(id, email, result);
+                UserResultModel artist = new UserResultModel(id, email, result);
                 databaseReference.child(id).setValue(artist);
 
 
