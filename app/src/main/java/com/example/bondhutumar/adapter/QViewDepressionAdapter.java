@@ -3,6 +3,7 @@ package com.example.bondhutumar.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +85,7 @@ public class QViewDepressionAdapter extends RecyclerView.Adapter<QViewDepression
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                    boolean isAnswer = false;
                     RadioButton rb = group.findViewById(checkedId);
 
                     int qNo = (int) group.getTag();
@@ -100,13 +102,14 @@ public class QViewDepressionAdapter extends RecyclerView.Adapter<QViewDepression
                     }
                     String answer = "";
                     if (checkedId != -1) {
-                        rb.getText().toString();
+                        //rb.getText().toString();
+                        isAnswer = true;
                     }
-
                     //Log.d("ok", Integer.toString(pos));
                     //Log.d("id", Integer.toString(aNo));
 
-                    map_depression.put(qNo, new UserAnswer(qNo, question, aNo, answer, radioGroup.getCheckedRadioButtonId(), true));
+
+                    map_depression.put(qNo, new UserAnswer(qNo, question, aNo, answer, radioGroup.getCheckedRadioButtonId(), isAnswer));
 
                 }
             });

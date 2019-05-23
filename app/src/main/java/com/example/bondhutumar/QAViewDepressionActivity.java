@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,9 @@ import com.example.bondhutumar.utils.OthersUtils;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -70,16 +74,32 @@ public class QAViewDepressionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int result = 0;
-                for (int i = 0; i < rv.getAdapter().getItemCount(); i++) {
+                int result = 0, answeredQuestion = 0;
 
+                int totalQuestion = rv.getAdapter().getItemCount();
+
+                for (int i = 0; i < totalQuestion; i++) {
                     if (QViewDepressionAdapter.map_depression.get(i) != null) {
-                        Log.d("check ", QViewDepressionAdapter.map_depression.get(i).getAnswer());
-                        result += QViewDepressionAdapter.map_depression.get(i).getAnswerNo();
+                        if (QViewDepressionAdapter.map_depression.get(i).isAnswered()) {
+                            //Log.d("check ", QViewDepressionAdapter.map_depression.get(i).getAnswer());
+                            //Log.d("is tf " + Integer.toString(i), String.valueOf(QViewDepressionAdapter.map_depression.get(i).isAnswered()));
+                            //Log.d("id " + Integer.toString(i), String.valueOf(QViewDepressionAdapter.map_depression.get(i).getAnswerRBtnID()));
+                            result += QViewDepressionAdapter.map_depression.get(i).getAnswerNo();
+                            answeredQuestion++;
+                        }
                     }
                 }
 
-                showResult(result);
+                int resInPsntg = (int) ((double) ((double) (result / (double) (answeredQuestion * 3))) * 100);
+                //Log.d("res ", Integer.toString(result));
+                //Log.d("answer ", Integer.toString(answeredQuestion));
+                //Log.d("per ", Double.toString(resInPsntg));
+
+                if (totalQuestion == answeredQuestion) {
+                    showResult(result, resInPsntg);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You need to answer all questions!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -154,20 +174,41 @@ public class QAViewDepressionActivity extends AppCompatActivity {
         btnShowResult = findViewById(R.id.aqvd_btn_show_result);
     }
 
-    private void showResult(final int result) {
+    private void setFeedback(int res, TextView tv) {
+        if (res >= 80) {
+            tv.setTextColor(Color.parseColor("#d50000"));
+            tv.setText("You Need Help. Please Contact.");
+        } else if (res >= 60) {
+            tv.setTextColor(Color.parseColor("#6200ea"));
+            tv.setText("Severe Depression.");
+        } else if (res >= 30) {
+            tv.setTextColor(Color.parseColor("#0091ea"));
+            tv.setText("Minimal Depression.");
+        } else {
+            tv.setTextColor(Color.parseColor("#64dd17"));
+            tv.setText("You Are Fine.");
+        }
+    }
+
+    private void showResult(final int result, final int rp) {
         final Dialog mDialog;
-        TextView tvResult, tvCancelButton;
+        TextView tvResult, tvCancelButton, tvShowWarning;
         final EditText etUserEmail;
         final Button btnSubmitEmail;
+
+        //String resutPersentage = new DecimalFormat("#0").format(rp);
+        String resutPersentage = Integer.toString(rp);
 
         mDialog = new Dialog(this);
         View v = getLayoutInflater().inflate(R.layout.layout_user_email, null);
         tvResult = v.findViewById(R.id.tv_show_result);
+        tvShowWarning = v.findViewById(R.id.tv_show_warning);
         tvCancelButton = v.findViewById(R.id.tv_cancel_button);
         btnSubmitEmail = v.findViewById(R.id.btn_submit_email);
         etUserEmail = v.findViewById(R.id.et_user_email_input);
 
-        tvResult.setText(Integer.toString(result));
+        tvResult.setText(resutPersentage + "%");
+        setFeedback(rp, tvShowWarning);
 
         btnSubmitEmail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,7 +219,6 @@ public class QAViewDepressionActivity extends AppCompatActivity {
 
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss'Z'", Locale.US);
                         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-                        System.out.println(sdf.format(new Date())); //-prints-> 2015-01-22T03:23:26Z
                         String timestamp = sdf.format(new Date());
 
                         String totalResult = Integer.toString(result);

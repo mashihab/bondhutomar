@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bondhutumar.adapter.QViewDepressionAdapter;
 import com.example.bondhutumar.adapter.QViewInsomniaAdapter;
 import com.example.bondhutumar.dao.QusAnsInsomniaDAO;
 import com.example.bondhutumar.dbhelper.QusestionAnswerDBHelper;
@@ -67,22 +69,35 @@ public class QAViewInsomniaActivity extends AppCompatActivity {
         }
 
 
-
-
         btnShowResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int result = 0;
-                for (int i = 0; i < rv.getAdapter().getItemCount(); i++) {
+                int result = 0, answeredQuestion = 0;
+                ;
 
-                    if ( QViewInsomniaAdapter.map_insomnia.get(i) != null) {
-                        Log.d("check ", QViewInsomniaAdapter.map_insomnia.get(i).getAnswer());
-                        result +=  QViewInsomniaAdapter.map_insomnia.get(i).getAnswerNo();
+                int totalQuestion = rv.getAdapter().getItemCount();
+
+                for (int i = 0; i < totalQuestion; i++) {
+
+                    if (QViewInsomniaAdapter.map_insomnia.get(i) != null) {
+                        if (QViewInsomniaAdapter.map_insomnia.get(i).isAnswered()) {
+                            //Log.d("check ", QViewInsomniaAdapter.map_insomnia.get(i).getAnswer());
+                            result += QViewInsomniaAdapter.map_insomnia.get(i).getAnswerNo();
+                            answeredQuestion++;
+                        }
                     }
                 }
 
-                showResult(result);
+                int resInPsntg = (int) ((double) ((double) (result / (double) (answeredQuestion * 2))) * 100);
+
+
+
+                if (totalQuestion == answeredQuestion) {
+                    showResult(result, resInPsntg);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You need to answer all questions!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -103,7 +118,7 @@ public class QAViewInsomniaActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     insomniaList = response.body();
 
-                    if(dbHelper.getInsomniaDataCount() <= 0){
+                    if (dbHelper.getInsomniaDataCount() <= 0) {
                         for (int i = 0; i < insomniaList.size(); i++) {
                             dbHelper.insertDataInsomnia(insomniaList.get(i));
                         }
@@ -132,7 +147,7 @@ public class QAViewInsomniaActivity extends AppCompatActivity {
 
     private void loadFromSQLite() {
         insomniaList = dbHelper.getInsomniaList();
-        if(insomniaList.size()==0){
+        if (insomniaList.size() == 0) {
             Toast.makeText(getApplicationContext(), "You need to internet to load questin first.", Toast.LENGTH_SHORT).show();
         }
 
@@ -143,7 +158,7 @@ public class QAViewInsomniaActivity extends AppCompatActivity {
     }
 
 
-    private void init(){
+    private void init() {
         //clear the map_depression to avoid error
         QViewInsomniaAdapter.map_insomnia.clear();
 
@@ -156,20 +171,40 @@ public class QAViewInsomniaActivity extends AppCompatActivity {
         btnShowResult = findViewById(R.id.aqvi_btn_show_result);
     }
 
-    private void showResult(final int result){
+    private void setFeedback(int res, TextView tv) {
+        if (res >= 80) {
+            tv.setTextColor(Color.parseColor("#d50000"));
+            tv.setText("You Need Help. Please Contact.");
+        } else if (res >= 60) {
+            tv.setTextColor(Color.parseColor("#6200ea"));
+            tv.setText("Severe Depression.");
+        } else if (res >= 30) {
+            tv.setTextColor(Color.parseColor("#0091ea"));
+            tv.setText("Minimal Depression.");
+        } else {
+            tv.setTextColor(Color.parseColor("#64dd17"));
+            tv.setText("You Are Fine.");
+        }
+    }
+
+    private void showResult(final int result, final int rp) {
         final Dialog mDialog;
-        TextView tvResult, tvCancelButton;
+        TextView tvResult, tvCancelButton, tvShowWarning;
         final EditText etUserEmail;
         final Button btnSubmitEmail;
+
+        String resutPersentage = Integer.toString(rp);
 
         mDialog = new Dialog(this);
         View v = getLayoutInflater().inflate(R.layout.layout_user_email, null);
         tvResult = v.findViewById(R.id.tv_show_result);
-        tvCancelButton  = v.findViewById(R.id.tv_cancel_button);
+        tvShowWarning = v.findViewById(R.id.tv_show_warning);
+        tvCancelButton = v.findViewById(R.id.tv_cancel_button);
         btnSubmitEmail = v.findViewById(R.id.btn_submit_email);
         etUserEmail = v.findViewById(R.id.et_user_email_input);
 
-        tvResult.setText(Integer.toString(result));
+        tvResult.setText(resutPersentage + "%");
+        setFeedback(rp, tvShowWarning);
 
         btnSubmitEmail.setOnClickListener(new View.OnClickListener() {
             @Override

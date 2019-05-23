@@ -80,6 +80,7 @@ public class QViewInsomniaAdapter extends RecyclerView.Adapter<QViewInsomniaAdap
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                    boolean isAnswer = false;
                     RadioButton rb = group.findViewById(checkedId);
 
                     int qNo = (int) group.getTag();
@@ -94,13 +95,14 @@ public class QViewInsomniaAdapter extends RecyclerView.Adapter<QViewInsomniaAdap
                     }
                     String answer = "";
                     if (checkedId != -1) {
-                        rb.getText().toString();
+                        //rb.getText().toString();
+                        isAnswer = true;
                     }
 
                     //Log.d("ok", Integer.toString(pos));
                     //Log.d("id", Integer.toString(aNo));
 
-                    map_insomnia.put(qNo, new UserAnswer(qNo, question, aNo, answer, radioGroup.getCheckedRadioButtonId(), true));
+                    map_insomnia.put(qNo, new UserAnswer(qNo, question, aNo, answer, radioGroup.getCheckedRadioButtonId(), isAnswer));
 
                 }
             });
