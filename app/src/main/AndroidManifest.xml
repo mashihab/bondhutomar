@@ -13,12 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Insomnia"></activity>
-        <activity android:name=".QAViewInsomniaActivity" />
-        <activity android:name=".QAViewDepressionActivity" />
+        <activity android:name=".Insomnia"
+
+            android:label="Insomnia"
+
+            />
+
+
+        <activity android:name=".QAViewInsomniaActivity"
+
+           android:theme="@style/AppTheme.NoActionBar"
+
+            />
+        <activity android:name=".QAViewDepressionActivity"
+
+            android:theme="@style/AppTheme.NoActionBar"  />
         <activity android:name=".Result" />
-        <activity android:name=".Depression" />
+        <activity android:name=".Depression"
+            android:label="Depression"
+
+            />
         <activity android:name=".EmailSendActivity" />
+
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"

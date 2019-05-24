@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_weight="5"
+
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
@@ -11,24 +13,25 @@
     <TextView
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
 
 
-        android:text="This Depression Test is 18 Question Test for Diagnosing,
-measuring, monitoring the severity of depression."
-        android:textSize="20dp" />
+        android:text="This insomnia Test is 18 Question Test for diagnosing,
+measuring, monitoring the severity of insomnia."
+        android:textSize="18dp" />
 
 
     <android.support.v7.widget.CardView
 
         android:layout_width="300dp"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+
         app:cardCornerRadius="20dp">
 
 
@@ -56,7 +59,8 @@ measuring, monitoring the severity of depression."
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center"
 
         android:layout_marginTop="20dp"
@@ -101,11 +105,12 @@ measuring, monitoring the severity of depression."
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center"
 
         android:layout_marginTop="20dp"
-
+         android:layout_marginBottom="50dp"
         app:cardCornerRadius="20dp">
 
 
@@ -133,7 +138,7 @@ measuring, monitoring the severity of depression."
                     android:layout_height="match_parent"
 
 
-                    android:background="@drawable/aboutdepration" />
+                    android:background="@drawable/insomnia" />
 
 
             </LinearLayout>
