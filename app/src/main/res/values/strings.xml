@@ -1,13 +1,23 @@
 <resources>
     <string name="app_name">Bondhutomar</string>
-    <string name="title_activity_main2">Home</string>
+    <string name="dashboard_title">Home</string>
     <string name="dep">Depression</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="agreement">In the sample agreement, the "Disclosing Party" is the person disclosing secrets, and the "Receiving Party" is the person who receives the confidential information and is obligated to keep it secret. The terms are capitalized to indicate that they should be interpreted as defined within the agreement. The sample agreement is a "one-way" (or, in legalese, "unilateral") agreement -- that is, only one party is disclosing secrets. If each side is disclosing secrets to the other, you should modify the agreement to make it a mutual (or "bilateral") nondisclosure agreement. To do that, substitute the following paragraph for the first paragraph in the agreement.</string>
+
+
+    <string name="txt_login">LOGIN</string>
+    <string name="txt_sign_up">SIGN UP</string>
+    <string name="txt_no_account">Don\'t have an account?</string>
+    <string name="txt_already_registered">Already registered?</string>
+    <string name="txt_confirm_password">Confirm Password</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_name">Name</string>
+    <string name="txt_email">Email</string>
 
 
     <string name="action_settings">Settings</string>
@@ -16,6 +26,7 @@
 
 
     <string name="DialogueText">You will get your result soon!!!</string>
+    <string name="txt_forgot_password">Forgot Password?</string>
 
     <string-array name="question">
         <item>Are you male?</item>

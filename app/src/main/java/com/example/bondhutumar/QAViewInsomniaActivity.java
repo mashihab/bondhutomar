@@ -177,10 +177,10 @@ public class QAViewInsomniaActivity extends AppCompatActivity {
             tv.setText("You Need Help. Please Contact.");
         } else if (res >= 60) {
             tv.setTextColor(Color.parseColor("#6200ea"));
-            tv.setText("Severe Depression.");
+            tv.setText("Severe Insomnia.");
         } else if (res >= 30) {
             tv.setTextColor(Color.parseColor("#0091ea"));
-            tv.setText("Minimal Depression.");
+            tv.setText("Minimal Insomnia.");
         } else {
             tv.setTextColor(Color.parseColor("#64dd17"));
             tv.setText("You Are Fine.");

@@ -47,7 +47,7 @@ public class EmailSendActivity extends AppCompatActivity {
 
 
                 Toast.makeText(EmailSendActivity.this,"You will get your result soon!!!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(EmailSendActivity.this,Main2Activity.class);
+                Intent intent = new Intent(EmailSendActivity.this,DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }

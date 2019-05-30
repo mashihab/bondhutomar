@@ -13,32 +13,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Insomnia"
 
-            android:label="Insomnia"
+        <activity android:name=".SignupActivity">
 
-            />
+        </activity>
 
+        <activity android:name=".LoginActivity" />
 
-        <activity android:name=".QAViewInsomniaActivity"
+        <activity
+            android:name=".Insomnia"
+            android:label="Insomnia" />
 
-           android:theme="@style/AppTheme.NoActionBar"
+        <activity android:name=".QAViewInsomniaActivity" />
 
-            />
-        <activity android:name=".QAViewDepressionActivity"
+        <activity android:name=".QAViewDepressionActivity" />
 
-            android:theme="@style/AppTheme.NoActionBar"  />
         <activity android:name=".Result" />
-        <activity android:name=".Depression"
-            android:label="Depression"
 
-            />
+        <activity
+            android:name=".Depression"
+            android:label="Depression" />
+
         <activity android:name=".EmailSendActivity" />
 
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".DashboardActivity"
+            android:label="@string/dashboard_title" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -48,6 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
